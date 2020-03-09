@@ -29,12 +29,12 @@
                 $<span id="accBal" name="numberDisplay" class="bankInfo" disabled></span>
             </div>
             <br>
-            <span id="message"></span>
+            <span id="depositMessage"></span>
             <div id="deposit">
                 $<input id="depositInput" name="numberDisplay" class="bankInfo" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
                 <button id="depositButton" onclick="incrementBal()">DEPOSIT</button>
             </div>
-            <!-- <br> -->
+            <span id="withdrawalMessage"></span>
             <div id="withdrawal">
                 $<input id="withdrawalInput" name="numberDisplay" class="bankInfo" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
                 <button id="withdrawalButton" onclick="decrementBal()">WITHDRAWAL</button>

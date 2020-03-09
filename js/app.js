@@ -44,26 +44,34 @@ function changePageOne() {
 function changePageTwo() {
     var deposit = document.getElementById("deposit");
     var withdrawal = document.getElementById("withdrawal");
+    var withdrawalMessage = document.getElementById("withdrawalMessage");
+    var depMessage = document.getElementById("depositMessage");
         withdrawal.style.display = "none";
         deposit.style.display = "block";
+        withdrawalMessage.style.display = "none";
+        depMessage.style.display = "block";
 };
 
 function changePageThree() {
     var withdrawal = document.getElementById("withdrawal");
     var deposit = document.getElementById("deposit");
+    var depMessage = document.getElementById("depositMessage");
+    var withdrawalMessage = document.getElementById("withdrawalMessage");
         deposit.style.display = "none";
         withdrawal.style.display = "block";
+        depMessage.style.display = "none";
+        withdrawalMessage.style.display = "block";
 };
 
 function incrementBal() {
-    let message = document.getElementById("message");
+    let message = document.getElementById("depositMessage");
     let input = document.getElementById('depositInput').value;
     accBal.innerText = parseFloat(accBal.innerText) + parseFloat(input);
     message.innerText = "Deposit Accepted!";
 };
 
 function decrementBal() {
-    let message = document.getElementById("message");
+    let message = document.getElementById("withdrawalMessage");
     let input = document.getElementById('withdrawalInput').value;
     accBal.innerText = parseFloat(accBal.innerText) - parseFloat(input);
     message.innerText = "Transaction Completed!";
