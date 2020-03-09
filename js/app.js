@@ -32,8 +32,6 @@ function showBankInfo() {
 
 function changePageOne() {
     var x = document.getElementById("balance");
-    // input.value - balance
-    // number (input.value)
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -50,6 +48,7 @@ function changePageTwo() {
         deposit.style.display = "block";
         withdrawalMessage.style.display = "none";
         depMessage.style.display = "block";
+        document.getElementById('withdrawalInput').value='';
 };
 
 function changePageThree() {
@@ -61,20 +60,29 @@ function changePageThree() {
         withdrawal.style.display = "block";
         depMessage.style.display = "none";
         withdrawalMessage.style.display = "block";
+        document.getElementById('depositInput').value='';
 };
 
 function incrementBal() {
     let message = document.getElementById("depositMessage");
     let input = document.getElementById('depositInput').value;
+    if (input == '') {
+        input = 0;
+    } else {
+        message.innerText = "Deposit Accepted!";        
+    }
     accBal.innerText = parseFloat(accBal.innerText) + parseFloat(input);
-    message.innerText = "Deposit Accepted!";
 };
 
 function decrementBal() {
     let message = document.getElementById("withdrawalMessage");
     let input = document.getElementById('withdrawalInput').value;
+    if (input == '') {
+        input = 0
+    } else {
+        message.innerText = "Transaction Completed!";
+    }
     accBal.innerText = parseFloat(accBal.innerText) - parseFloat(input);
-    message.innerText = "Transaction Completed!";
 };
 
 
