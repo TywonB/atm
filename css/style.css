@@ -1,0 +1,65 @@
+body {
+    text-align: center;
+    background: beige;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.signIn {
+    font-family: 'Courgette', cursive;
+}
+
+
+.logIn {
+    border-radius: 5px;
+    background: rgb(52, 179, 21);
+    border: none;
+    color: beige;
+    padding: 9px 200px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#bank {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: beige;
+    display: none;
+}
+
+#bank p {
+    font-size: 32px;
+    font-family: 'Courgette', cursive;
+}
+
+#bank button {
+    margin: 5px 332px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(52, 179, 21);
+    color: beige;
+    cursor: pointer;
+}
+
+#balance, #deposit, #withdrawal {
+    width: 100%;
+    text-align: center;
+    background-color: beige;
+    display: none;
+}
+
+#depositButton, #withdrawalButton {
+    padding: 3px;
+    border: none;
+    /* font-size: 10px; */
+    border-radius: 5px;
+    background: rgb(52, 179, 21);
+    color: beige;
+    cursor: pointer;
+}
+
+/* .bankOutter {
+    display: none;
+    background: grey;
+} */
