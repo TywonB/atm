@@ -1,49 +1,56 @@
-var accountName = document.getElementById('accountName');
+var accountFirstName = document.getElementById('accountFirstName');
+var accountLastName = document.getElementById('accountLastName');
 var accBal = document.getElementById('accBal');
 
 function showPin() {
     let visible = document.getElementById("pin");
-    if (visible.type === "password") {
-        visible.type = "text";
-    } else {
-        visible.type = "password";
-    };
+        if (visible.type === "password") {
+            visible.type = "text";
+        } else {
+            visible.type = "password";
+        };
 };
 
 function showBankInfo() {
-
     let card = document.getElementById('cardNumber').value;
     let pin = document.getElementById('pin').value;
-
-    if (card == '') {
-        alert("ENTER Card Number");
-    } else if (pin == '') {
-        alert("ENTER Pin Number");
-    } else if (card == '' && pin == '') {
-        alert("ENTER Card and Pin Number");
-    } else if (card.length < 16) {
-        alert("Insufficient Card Numbers");
-    } else if (pin.length < 4) {
-        alert("Insufficient Pin Numbers");
-    } else {
-        check();
-    }
+        if (card == '') {
+            alert("ENTER Card Number");
+        } else if (pin == '') {
+            alert("ENTER Pin Number");
+        } else if (card == '' && pin == '') {
+            alert("ENTER Card and Pin Number");
+        } else if (card.length < 16) {
+            alert("Insufficient Card Numbers");
+        } else if (pin.length < 4) {
+            alert("Insufficient Pin Numbers");
+        } else {
+            check();
+        }
 };
 
 function changePageOne() {
-    var x = document.getElementById("balance");
-    if (x.style.display === "none") {
+    let x = document.getElementById("balance");
+    let deposit = document.getElementById("deposit");
+    let withdrawal = document.getElementById("withdrawal");
+    let withdrawalMessage = document.getElementById("withdrawalMessage");
+    let depMessage = document.getElementById("depositMessage");
         x.style.display = "block";
-    } else {
-        x.style.display = "block";
-    };
+        deposit.style.display = "none";
+        withdrawal.style.display = "none";
+        withdrawalMessage.style.display = "none";
+        depMessage.style.display = "none";
+        document.getElementById('depositInput').value='';
+        document.getElementById('withdrawalInput').value='';
+
 };
 
 function changePageTwo() {
-    var deposit = document.getElementById("deposit");
-    var withdrawal = document.getElementById("withdrawal");
-    var withdrawalMessage = document.getElementById("withdrawalMessage");
-    var depMessage = document.getElementById("depositMessage");
+    let deposit = document.getElementById("deposit");
+    let withdrawal = document.getElementById("withdrawal");
+    let withdrawalMessage = document.getElementById("withdrawalMessage");
+    let depMessage = document.getElementById("depositMessage");
+        depMessage.innerText = '';
         withdrawal.style.display = "none";
         deposit.style.display = "block";
         withdrawalMessage.style.display = "none";
@@ -52,10 +59,11 @@ function changePageTwo() {
 };
 
 function changePageThree() {
-    var withdrawal = document.getElementById("withdrawal");
-    var deposit = document.getElementById("deposit");
-    var depMessage = document.getElementById("depositMessage");
-    var withdrawalMessage = document.getElementById("withdrawalMessage");
+    let withdrawal = document.getElementById("withdrawal");
+    let deposit = document.getElementById("deposit");
+    let depMessage = document.getElementById("depositMessage");
+    let withdrawalMessage = document.getElementById("withdrawalMessage");
+        withdrawalMessage.innerText = '';
         deposit.style.display = "none";
         withdrawal.style.display = "block";
         depMessage.style.display = "none";
@@ -66,33 +74,39 @@ function changePageThree() {
 function incrementBal() {
     let message = document.getElementById("depositMessage");
     let input = document.getElementById('depositInput').value;
-    if (input == '') {
-        input = 0;
-    } else {
-        message.innerText = "Deposit Accepted!";        
-    }
-    accBal.innerText = parseFloat(accBal.innerText) + parseFloat(input);
+
+        if (input == '') {
+            input = 0;
+        } else {
+            message.innerText = "Deposit Accepted!";        
+        }
+    let balance = parseFloat(accBal.innerText) + parseFloat(input)
+        accBal.innerText = balance.toFixed(2);
 };
 
 function decrementBal() {
     let message = document.getElementById("withdrawalMessage");
     let input = document.getElementById('withdrawalInput').value;
-    if (input == '') {
-        input = 0
-    } else {
-        message.innerText = "Transaction Completed!";
-    }
-    accBal.innerText = parseFloat(accBal.innerText) - parseFloat(input);
+    input = parseFloat(input)
+    
+        if (input == '') {
+            input = 0
+        } else if (input > accBal.innerText) {
+            message.innerText = "Insufficient Funds!";
+            return message;
+        } else {
+            message.innerText = "Transaction Completed!";
+        }
+    let balance = parseFloat(accBal.innerText) - parseFloat(input)
+        accBal.innerText = balance.toFixed(2);
 };
 
-
-
 function check() {
-
     let card = document.getElementById('cardNumber').value;
     let pin = document.getElementById('pin').value;
-
-    var account = [
+    let bankStuff = document.getElementById('bankStuff');
+    let message = document.getElementById("errorOutput");
+    let account = [
         {
             lname: "Mullican",
             fname: "Bryce",
@@ -130,10 +144,14 @@ function check() {
             if (x.style.display === "none") {
                 x.style.display = "block";
             } else {
+                bankStuff.style.display = 'none';
                 x.style.display = "block";
             };
-            accountName.innerText = account[i].fname;
+            accountFirstName.innerText = account[i].fname;
+            accountLastName.innerText = account[i].lname;
             accBal.innerText = account[i].balance;
+        } else if (!(card == account[i].card_number && pin == account[i].pin_code)) {
+            message.innerText = 'No account found... TRY AGAIN';
         };
     };
 };

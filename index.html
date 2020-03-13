@@ -8,36 +8,39 @@
     <title>ATM</title>
 </head>
     <body>
-        <form action="#">
-            <h1 class="signIn">Log into your Bank Account</h1>
-            <input id="cardNumber" type="cardNumber" placeholder="Card Number" maxlength="16">
-            <input  id="pin" type="password" placeholder="Pin" maxlength="4">
-            <br>
-            <input type="checkbox" onclick="showPin()">Show Pin
-            <br>
-            <button onclick="showBankInfo()" class="logIn">Log in</button>
-        </form>
+        <div id="bankStuff">
+            <form action="#">
+                <h1 class="signIn">Log into your Bank Account</h1>
+                <input id="cardNumber" type="cardNumber" placeholder="Card Number" maxlength="16">
+                <input  id="pin" type="password" placeholder="Pin" maxlength="4">
+                <br>
+                <input class="showPin" type="checkbox" onclick="showPin()">Show Pin
+                <br>
+                <button onclick="showBankInfo()" class="logIn">Log in</button>
+                <br>
+                <br>
+                <span id="errorOutput"></span>
+            </form>
+        </div>
         <br>
-        <div class="bankOutter">
-            <div id="bank">
-                <p>WELCOME <span id="accountName"></span> </p>
-                <button onclick="changePageOne()">CHECK BALANCE</button>
-                <button onclick="changePageTwo()">DEPOSIT</button>
-                <button onclick="changePageThree()">WITHDRAWAL</button>
-            </div>
+        <div id="bank">
+            <p class="welcome">WELCOME <span id="accountFirstName"></span> <span id="accountLastName"></span></p>
+            <button class="check" onclick="changePageOne()">CHECK BALANCE</button>
+            <button class="deposit" onclick="changePageTwo()">DEPOSIT</button>
+            <button class="withdrawal" onclick="changePageThree()">WITHDRAWAL</button>
             <div id="balance">
-                $<span id="accBal" name="numberDisplay" class="bankInfo"></span>
+                <p class="bankBalance">$<span id="accBal" name="numberDisplay"></span></p>
             </div>
             <br>
             <span id="depositMessage"></span>
             <div id="deposit">
-                $<input id="depositInput" name="numberDisplay" class="bankInfo" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
-                <button id="depositButton" onclick="incrementBal()">DEPOSIT</button>
+                <p class="dollarSign">$<input id="depositInput" name="numberDisplay" class="bankInfo" onkeypress='return event.charCode >= 46     && event.charCode <= 57'>
+                <button id="depositButton" onclick="incrementBal()  ">DEPOSIT</button>
             </div>
             <span id="withdrawalMessage"></span>
             <div id="withdrawal">
-                $<input id="withdrawalInput" name="numberDisplay" class="bankInfo" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
-                <button id="withdrawalButton" onclick="decrementBal()">WITHDRAWAL</button>
+                <p class="dollarSign">$<input id="withdrawalInput" name="numberDisplay" class="bankInfo" onkeypress='return event.charCode >= 46  && event.charCode <= 57'>
+                <button id="withdrawalButton" onclick="decrementBal()   ">WITHDRAWAL</button>
             </div>
         </div>
     </body>

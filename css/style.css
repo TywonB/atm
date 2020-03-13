@@ -8,7 +8,6 @@ body {
     font-family: 'Courgette', cursive;
 }
 
-
 .logIn {
     border-radius: 5px;
     background: rgb(52, 179, 21);
@@ -28,13 +27,20 @@ body {
 }
 
 #bank p {
-    font-size: 32px;
     font-family: 'Courgette', cursive;
 }
 
-#bank button {
-    margin: 5px 332px;
+.logIn, .check, .deposit, .withdrawal, #depositButton, #withdrawalButton {
     padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(52, 179, 21);
+    color: beige;
+    cursor: pointer;
+}
+
+.logIn {
+    padding: 10px 230px;
     border: none;
     border-radius: 5px;
     background: rgb(52, 179, 21);
@@ -50,16 +56,36 @@ body {
 }
 
 #depositButton, #withdrawalButton {
-    padding: 3px;
+    padding: 7px;
     border: none;
-    /* font-size: 10px; */
     border-radius: 5px;
     background: rgb(52, 179, 21);
     color: beige;
     cursor: pointer;
 }
 
-/* .bankOutter {
-    display: none;
-    background: grey;
-} */
+#bank {
+    border: 5px solid rgb(104, 230, 110);
+    width: 797px;
+    margin-left: 70px;
+    padding-bottom: 60px;
+}
+
+.withdrawal {
+    margin-bottom: 10px;
+}
+
+input {
+    font-size: 20px;
+    background: none;
+    border: 1px solid rgb(104, 230, 110);
+    margin-left: 5px;
+}
+
+.welcome {
+    font-size: 32px;
+}
+
+.bankBalance, .dollarSign {
+    font-size: 25px;
+}
