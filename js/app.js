@@ -113,28 +113,28 @@ function check() {
             acc_number: "704672",
             card_number: "1584685237651846",
             pin_code: 2050,
-            balance: 9500.24
+            balance: 195043.24
         }, {
             lname: "Brown",
             fname: "Herbert",
             acc_number: "498115",
             card_number: "8846843585435487",
             pin_code: 5016,
-            balance: 150000.87
+            balance: 159437.87
         }, {
             lname: "Singleton",
             fname: "Nekiedra",
             acc_number: "962485",
             card_number: "1586815353487862",
             pin_code: 8351,
-            balance: 4864.21
+            balance: 48645.21
         }, {
             lname: "Peraza",
-            fname: "Javi",
+            fname: "Javier",
             acc_number: "970483",
             card_number: "1538483123843651",
             pin_code: 9255,
-            balance: 2813.97
+            balance: 32813.97
         }
     ];
 
