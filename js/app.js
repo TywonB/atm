@@ -86,18 +86,19 @@ function incrementBal() {
 
 function decrementBal() {
     let message = document.getElementById("withdrawalMessage");
+    let withdrawalInput = document.getElementById("withdrawalInput").value;
     let input = document.getElementById('withdrawalInput').value;
-    input = parseFloat(input)
+        input = parseFloat(input)
     
-        if (input == '') {
-            input = 0
+        if (withdrawalInput == '') {
+            withdrawalInput = 0;
         } else if (input > accBal.innerText) {
             message.innerText = "Insufficient Funds!";
             return message;
         } else {
             message.innerText = "Transaction Completed!";
         }
-    let balance = parseFloat(accBal.innerText) - parseFloat(input)
+    let balance = parseFloat(accBal.innerText) - parseFloat(withdrawalInput);
         accBal.innerText = balance.toFixed(2);
 };
 
